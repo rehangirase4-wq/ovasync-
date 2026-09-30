@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>3D Printing Meets mRNA | Drug Delivery</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f9ff;
+    color:#17233c;
+    line-height:1.6;
+}
+
+/* NAVBAR */
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,0.96);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 7%;
+    box-shadow:0 3px 15px rgba(0,0,0,0.08);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    color:#1557b0;
+}
+
+.logo span{
+    color:#8a35c7;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#17233c;
+    font-weight:600;
+}
+
+nav a:hover{
+    color:#1557b0;
+}
+
+/* HERO */
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+    padding:70px 8%;
+    background:linear-gradient(135deg,#eef7ff,#ffffff,#f6edff);
+}
+
+.hero-text{
+    max-width:650px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:30px;
+    background:#e7f1ff;
+    color:#1557b0;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,76px);
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#8138c4;
+}
+
+.hero p{
+    font-size:20px;
+    color:#53627a;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:30px;
+    background:#1557b0;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.btn.secondary{
+    background:white;
+    color:#1557b0;
+    border:2px solid #1557b0;
+}
+
+/* DNA VISUAL */
+.dna-box{
+    width:390px;
+    height:390px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:radial-gradient(circle,#b777e8,#6732b8 55%,#25114d);
+    box-shadow:0 20px 60px rgba(95,46,170,.3);
+    position:relative;
+}
+
+.dna{
+    font-size:100px;
+    color:white;
+    transform:rotate(25deg);
+}
+
+/* GENERAL */
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#66748b;
+}
+
+/* CARDS */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 30px rgba(35,65,110,.09);
+    border:1px solid #e7edf6;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(35,65,110,.15);
+}
+
+.icon{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#1557b0;
+}
+
+.card p{
+    color:#66748b;
+}
+
+/* PROCESS */
+.process{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+
+.step{
+    text-align:center;
+    background:white;
+    padding:25px 15px;
+    border-radius:18px;
+    border-top:5px solid #8138c4;
+}
+
+.number{
+    width:45px;
+    height:45px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#1557b0;
+    color:white;
+    font-weight:bold;
+}
+
+/* FEATURE */
+.feature{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.feature-box{
+    background:linear-gradient(135deg,#1557b0,#7138b7);
+    color:white;
+    padding:50px;
+    border-radius:30px;
+}
+
+.feature-box h2{
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.list{
+    margin-top:20px;
+}
+
+.list div{
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,.25);
+}
+
+/* APPLICATIONS */
+.application{
+    background:#ffffff;
+}
+
+/* FOOTER */
+footer{
+    background:#101a30;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+footer p{
+    color:#aeb8c9;
+    margin-top:8px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .dna-box{
+        width:280px;
+        height:280px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    .feature{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">3D<span>mRNA</span></div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#applications">Applications</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <div class="badge">
+            Advanced Pharmaceutical Technology
+        </div>
+
+        <h1>
+            3D Printing Meets
+            <span>mRNA</span>
+        </h1>
+
+        <p>
+            Revolutionizing Drug Delivery through personalized,
+            precise and advanced pharmaceutical systems.
+        </p>
+
+        <a href="#technology" class="btn">
+            Explore Technology
+        </a>
+
+        <a href="#process" class="btn secondary">
+            How It Works
+        </a>
+
+    </div>
+
+    <div class="dna-box">
+        <div class="dna">🧬</div>
+    </div>
+
+</section>
+
+
+<!-- TECHNOLOGY -->
+<section id="technology">
+
+    <div class="section-title">
+        <h2>Two Technologies. One Vision.</h2>
+        <p>
+            Combining additive manufacturing with next-generation mRNA therapeutics.
+        </p>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="icon">🖨️</div>
+            <h3>3D Printing</h3>
+
+            <p>
+                3D printing can create customized pharmaceutical
+                structures with controlled geometry, materials and
+                release characteristics.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧬</div>
+            <h3>mRNA Technology</h3>
+
+            <p>
+                mRNA carries biological instructions that allow cells
+                to produce specific therapeutic proteins.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎯</div>
+            <h3>Smart Drug Delivery</h3>
+
+            <p>
+                Advanced delivery systems are being investigated to
+                improve localization, stability and controlled release
+                of therapeutic molecules.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section id="process">
+
+    <div class="section-title">
+        <h2>How It Works</h2>
+        <p>Conceptual workflow for advanced mRNA drug delivery.</p>
+    </div>
+
+    <div class="process">
+
+        <div class="step">
+            <div class="number">1</div>
+            <h3>Design</h3>
+            <p>Create the digital structure for the delivery system.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">2</div>
+            <h3>3D Print</h3>
+            <p>Manufacture the designed drug-delivery structure.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">3</div>
+            <h3>Formulation</h3>
+            <p>Prepare and incorporate the appropriate mRNA formulation.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">4</div>
+            <h3>Delivery</h3>
+            <p>Enable controlled delivery of the therapeutic formulation.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">5</div>
+            <h3>Cell Response</h3>
+            <p>mRNA provides instructions for protein production.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURE -->
+<section>
+
+    <div class="feature">
+
+        <div class="feature-box">
+
+            <h2>Why It Matters</h2>
+
+            <p>
+                Researchers are exploring how advanced manufacturing
+                technologies can support more precise drug-delivery
+                platforms.
+            </p>
+
+            <div class="list">
+                <div>✓ Personalized drug-delivery designs</div>
+                <div>✓ Controlled release possibilities</div>
+                <div>✓ Flexible dosage-form development</div>
+                <div>✓ Advanced pharmaceutical manufacturing</div>
+            </div>
+
+        </div>
+
+        <div>
+
+            <div class="section-title" style="text-align:left;">
+                <h2>Future of Drug Delivery</h2>
+
+                <p>
+                    The combination of 3D printing and mRNA technology
+                    represents an emerging research area in personalized
+                    and targeted drug delivery.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- APPLICATIONS -->
+<section id="applications" class="application">
+
+    <div class="section-title">
+
+        <h2>Potential Applications</h2>
+
+        <p>
+            Areas being investigated in pharmaceutical and biomedical research.
+        </p>
+
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="icon">💊</div>
+            <h3>Personalized Medicine</h3>
+            <p>
+                Customized drug-delivery platforms designed around
+                individual treatment requirements.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧫</div>
+            <h3>Vaccines</h3>
+            <p>
+                mRNA-based vaccine technologies combined with
+                advanced delivery approaches.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔬</div>
+            <h3>Biomedical Research</h3>
+            <p>
+                New delivery platforms for studying therapeutic
+                molecules and biological responses.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DISCLAIMER -->
+<section>
+
+    <div class="card" style="text-align:center;">
+
+        <h3>Research Concept</h3>
+
+        <p>
+            This website presents an educational and research concept.
+            Combining 3D printing with mRNA delivery is an emerging field;
+            specific products and applications require extensive
+            pharmaceutical development, safety testing and regulatory approval.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <h2>3D Printing + mRNA</h2>
+
+    <p>
+        Smarter Drug Delivery • Advanced Pharmaceutical Research
+    </p>
+
+    <p>
+        © 2026 Educational Scientific Project
+    </p>
+
+</footer>
+
+</body>
+</html>

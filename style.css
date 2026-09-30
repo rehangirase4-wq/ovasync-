@@ -1,0 +1,619 @@
+/* =========================================
+   3D PRINTING MEETS mRNA
+   PROFESSIONAL SCIENTIFIC WEBSITE CSS
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f9ff;
+    color: #17233c;
+    line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 7%;
+
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s ease;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: #1557b0;
+}
+
+.logo span {
+    color: #8138c4;
+}
+
+nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+nav a {
+    color: #17233c;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #8138c4;
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    padding: 80px 8%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef7ff,
+            #ffffff,
+            #f6edff
+        );
+}
+
+.hero-text {
+    max-width: 680px;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 8px 17px;
+
+    border-radius: 30px;
+
+    background: #e7f1ff;
+    color: #1557b0;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1.05;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #8138c4;
+}
+
+.hero p {
+    max-width: 620px;
+
+    font-size: 20px;
+
+    color: #596980;
+
+    margin-bottom: 32px;
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 26px;
+
+    border-radius: 30px;
+
+    background: #1557b0;
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    margin-right: 8px;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(21, 87, 176, 0.25);
+}
+
+.btn.secondary {
+    background: white;
+    color: #1557b0;
+
+    border: 2px solid #1557b0;
+}
+
+.btn.secondary:hover {
+    background: #1557b0;
+    color: white;
+}
+
+/* =========================
+   DNA VISUAL
+   ========================= */
+
+.dna-box {
+    width: 390px;
+    height: 390px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #b777e8,
+            #6732b8 55%,
+            #25114d
+        );
+
+    box-shadow:
+        0 25px 70px rgba(95, 46, 170, 0.35);
+
+    position: relative;
+
+    animation: floatDNA 4s ease-in-out infinite;
+}
+
+.dna {
+    font-size: 105px;
+    color: white;
+
+    transition: transform 0.2s linear;
+
+    filter:
+        drop-shadow(
+            0 10px 20px rgba(0,0,0,0.25)
+        );
+}
+
+@keyframes floatDNA {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* =========================
+   SECTIONS
+   ========================= */
+
+section {
+    padding: 85px 8%;
+}
+
+.section-title {
+    text-align: center;
+
+    max-width: 850px;
+
+    margin: 0 auto 50px;
+}
+
+.section-title h2 {
+    font-size: 40px;
+
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    color: #66748b;
+
+    font-size: 17px;
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.card {
+    background: white;
+
+    padding: 32px;
+
+    border-radius: 22px;
+
+    border: 1px solid #e5ebf5;
+
+    box-shadow:
+        0 8px 30px rgba(35, 65, 110, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-9px);
+
+    box-shadow:
+        0 18px 40px rgba(35, 65, 110, 0.15);
+}
+
+.icon {
+    font-size: 43px;
+
+    margin-bottom: 17px;
+}
+
+.card h3 {
+    color: #1557b0;
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #66748b;
+}
+
+/* =========================
+   PROCESS
+   ========================= */
+
+.process {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 16px;
+}
+
+.step {
+    background: white;
+
+    text-align: center;
+
+    padding: 28px 16px;
+
+    border-radius: 20px;
+
+    border-top: 5px solid #8138c4;
+
+    box-shadow:
+        0 8px 25px rgba(35, 65, 110, 0.08);
+
+    transition: 0.3s;
+}
+
+.step:hover {
+    transform: translateY(-7px);
+}
+
+.number {
+    width: 48px;
+    height: 48px;
+
+    margin: 0 auto 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #1557b0;
+    color: white;
+
+    font-weight: 800;
+}
+
+.step h3 {
+    margin-bottom: 8px;
+}
+
+.step p {
+    color: #68768c;
+    font-size: 14px;
+}
+
+/* =========================
+   FEATURE
+   ========================= */
+
+.feature {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 55px;
+
+    align-items: center;
+}
+
+.feature-box {
+    padding: 50px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1557b0,
+            #7138b7
+        );
+
+    box-shadow:
+        0 20px 50px rgba(75, 55, 160, 0.22);
+}
+
+.feature-box h2 {
+    font-size: 38px;
+
+    margin-bottom: 20px;
+}
+
+.feature-box p {
+    color: #edf3ff;
+}
+
+.list {
+    margin-top: 22px;
+}
+
+.list div {
+    padding: 11px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.25);
+}
+
+/* =========================
+   APPLICATIONS
+   ========================= */
+
+.application {
+    background: #ffffff;
+}
+
+/* =========================
+   RESEARCH BOX
+   ========================= */
+
+.research-box {
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 35px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    border-left: 6px solid #8138c4;
+
+    box-shadow:
+        0 8px 30px rgba(35,65,110,0.08);
+}
+
+/* =========================
+   SCROLL ANIMATION
+   ========================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background: #101a30;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 45px 20px;
+}
+
+footer h2 {
+    font-size: 28px;
+}
+
+footer p {
+    color: #aeb8c9;
+
+    margin-top: 8px;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 1000px) {
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .process {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .dna-box {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 750px) {
+
+    nav {
+        padding: 16px 5%;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .hero {
+        min-height: auto;
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 70px 6%;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dna-box {
+        width: 260px;
+        height: 260px;
+    }
+
+    .dna {
+        font-size: 80px;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process {
+        grid-template-columns: 1fr;
+    }
+
+    .feature {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-box {
+        padding: 35px;
+    }
+
+    .feature-box h2 {
+        font-size: 31px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .btn {
+        display: block;
+
+        width: 100%;
+
+        margin: 10px 0;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .dna-box {
+        width: 220px;
+        height: 220px;
+    }
+}
